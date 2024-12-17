@@ -1,0 +1,4 @@
+com\example\wasteclassification\controller\ClassificationController.class
+com\example\wasteclassification\config\RestTemplateConfig.class
+com\example\wasteclassification\service\ClassificationService.class
+com\example\wasteclassification\WasteClassificationApplication.class

@@ -1,0 +1,95 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Halaman Utama */
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.intro h2, .classification h2, .education h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin: 1rem 0;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Form */
+form {
+    margin: 1.5rem 0;
+}
+
+input[type="file"] {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Result & Edukasi */
+.result {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.education ul {
+    text-align: left;
+    margin: 1rem auto;
+    display: inline-block;
+    list-style: square;
+}
+
+.education li {
+    margin-bottom: 0.5rem;
+}

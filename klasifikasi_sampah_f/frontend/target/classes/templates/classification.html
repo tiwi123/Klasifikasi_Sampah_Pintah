@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi Sampah</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Klasifikasi Sampah</h1>
+    </header>
+    <main>
+        <section class="classification">
+            <h2>Unggah Gambar Sampah</h2>
+            <!-- Form untuk mengunggah gambar -->
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <button type="submit" class="btn">Klasifikasi</button>
+            </form>
+            
+            <div class="result">
+                <h3>Hasil Klasifikasi:</h3>
+                <p id="resultText">Unggah gambar untuk melihat hasil...</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();  // Mencegah form agar tidak melakukan refresh halaman
+
+            const formData = new FormData();
+            formData.append("image", document.getElementById("image").files[0]);
+
+            // Mengirim permintaan POST ke server Flask untuk klasifikasi
+            fetch('http://192.168.100.23:5000/classify', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Menampilkan hasil klasifikasi
+                const resultText = document.getElementById('resultText');
+                if (data.error) {
+                    resultText.innerHTML = `Error: ${data.error}`; // Menampilkan error jika ada
+                } else {
+                    resultText.innerHTML = `Klasifikasi: ${data.class}, Kepercayaan: ${data.confidence}`; // Menampilkan hasil klasifikasi
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const resultText = document.getElementById('resultText');
+                resultText.innerHTML = "Terjadi kesalahan saat memproses gambar."; // Menangani error
+            });
+        });
+    </script>
+</body>
+</html>
